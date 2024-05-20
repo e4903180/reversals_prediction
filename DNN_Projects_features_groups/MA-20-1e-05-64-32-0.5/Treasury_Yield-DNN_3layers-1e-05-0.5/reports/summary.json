@@ -1,0 +1,272 @@
+{
+    "confusion metrics": {
+        "Class": {
+            "0": "No Reversal",
+            "1": "Peak",
+            "2": "Valley",
+            "3": "Macro-average",
+            "4": "Micro-average"
+        },
+        "Accuracy": {
+            "0": 0.3142857142857143,
+            "1": 0.3142857142857143,
+            "2": 0.3142857142857143,
+            "3": 0.3142857142857143,
+            "4": 0.3142857142857143
+        },
+        "Precision": {
+            "0": 0.47058823529411764,
+            "1": 0.2727272727272727,
+            "2": 0.0,
+            "3": 0.24777183600713013,
+            "4": 0.3142857142857143
+        },
+        "Recall": {
+            "0": 0.47058823529411764,
+            "1": 0.3,
+            "2": 0.0,
+            "3": 0.2568627450980392,
+            "4": 0.3142857142857143
+        },
+        "F1-Score": {
+            "0": 0.47058823529411764,
+            "1": 0.28571428571428564,
+            "2": 0.0,
+            "3": 0.25210084033613445,
+            "4": 0.3142857142857143
+        },
+        "Specificity": {
+            "0": 0.6153846153846154,
+            "1": 0.6153846153846154,
+            "2": 0.6153846153846154,
+            "3": 0.6153846153846154,
+            "4": 0.6153846153846154
+        },
+        "False Positive Rate": {
+            "0": 0.38461538461538464,
+            "1": 0.38461538461538464,
+            "2": 0.38461538461538464,
+            "3": 0.38461538461538464,
+            "4": 0.38461538461538464
+        },
+        "False Negative Rate": {
+            "0": 0.42857142857142855,
+            "1": 0.42857142857142855,
+            "2": 0.42857142857142855,
+            "3": 0.42857142857142855,
+            "4": 0.42857142857142855
+        }
+    },
+    "pr_auc": [
+        0.422,
+        0.2038,
+        0.1588
+    ],
+    "roc_auc": [
+        0.4509803921568628,
+        0.312,
+        0.31018518518518523
+    ],
+    "kappa": -0.09090909090909083,
+    "mcc": -0.0910280008785877,
+    "execution_time": 420.7293634414673,
+    "using_data": {
+        "train_indices": [
+            "^GSPC",
+            "^IXIC",
+            "^DJI",
+            "^RUA"
+        ],
+        "test_indices": "^GSPC",
+        "start_date": "2001-01-01",
+        "stop_date": "2024-01-01",
+        "features_params": [
+            {
+                "type": "PV",
+                "local_type": "MA",
+                "oder_days": 20,
+                "ma_days": 20
+            },
+            {
+                "type": "MACD",
+                "fastperiod": 5,
+                "slowperiod": 10,
+                "signalperiod": 9
+            },
+            {
+                "type": "ROC",
+                "trend_days": 5
+            },
+            {
+                "type": "Stochastic Oscillator",
+                "trend_days": 5
+            },
+            {
+                "type": "CCI",
+                "timeperiod": 14
+            },
+            {
+                "type": "RSI",
+                "timeperiod": 14
+            },
+            {
+                "type": "MA",
+                "timeperiod": 20
+            },
+            {
+                "type": "VMA",
+                "timeperiod": 20
+            },
+            {
+                "type": "pctChange"
+            },
+            {
+                "type": "13W Treasury Yield",
+                "start_date": "2001-01-01",
+                "end_date": "2021-01-01"
+            },
+            {
+                "type": "5Y Treasury Yield",
+                "start_date": "2001-01-01",
+                "end_date": "2021-01-01"
+            },
+            {
+                "type": "10Y Treasury Yield",
+                "start_date": "2001-01-01",
+                "end_date": "2021-01-01"
+            },
+            {
+                "type": "30Y Treasury Yield",
+                "start_date": "2001-01-01",
+                "end_date": "2021-01-01"
+            },
+            {
+                "type": "Bollinger Bands",
+                "timeperiod": 20,
+                "nbdevup": 2,
+                "nbdevdn": 2
+            },
+            {
+                "type": "ATR",
+                "timeperiod": 14
+            },
+            {
+                "type": "OBV"
+            },
+            {
+                "type": "Parabolic SAR",
+                "start": 0.02,
+                "increment": 0.02,
+                "maximum": 0.2
+            },
+            {
+                "type": "MOM",
+                "timeperiod": 10
+            },
+            {
+                "type": "Williams %R",
+                "lookback_period": 14
+            },
+            {
+                "type": "Chaikin MF",
+                "timeperiod": 20
+            }
+        ],
+        "data_cleaning": {
+            "clean_type": "MissingData",
+            "strategy": "auto"
+        },
+        "train_split_ratio": 0.7,
+        "val_split_ratio": 0.1,
+        "target_col": "PV",
+        "feature_cols": [
+            "13W Treasury Yield",
+            "5Y Treasury Yield",
+            "10Y Treasury Yield",
+            "30Y Treasury Yield"
+        ],
+        "look_back": 32,
+        "predict_steps": 32,
+        "train_slide_steps": 1,
+        "test_slide_steps": 32,
+        "model_params": {
+            "LeNet": {
+                "conv_1_in_channels": 19,
+                "conv_1_out_channels": 8,
+                "conv_1_kernel": 3,
+                "conv_1_padding": 1,
+                "MaxPool2d_1_kernel_size": 2,
+                "fc_1_out_features": 512,
+                "reshape": "False"
+            },
+            "LeNet_2": {
+                "conv_1_in_channels": 19,
+                "conv_1_out_channels": 6,
+                "conv_1_kernel": 3,
+                "conv_1_padding": 1,
+                "MaxPool2d_1_kernel_size": 2,
+                "conv_2_out_channels": 8,
+                "conv_2_kernel": 3,
+                "conv_2_padding": 1,
+                "MaxPool2d_2_kernel_size": 2,
+                "fc_1_out_features": 512,
+                "reshape": "False"
+            },
+            "RNN": {
+                "hidden_size": 32,
+                "num_layers": 1,
+                "dropout": 0.2,
+                "reshape": "False"
+            },
+            "LSTM": {
+                "hidden_size": 32,
+                "num_layers": 1,
+                "dropout": 0.2,
+                "reshape": "False"
+            },
+            "CNN_LSTM": {
+                "conv_1_kernel": 3,
+                "conv_1_padding": 1,
+                "MaxPool2d_1_kernel_size": 2,
+                "conv_2_kernel": 3,
+                "conv_2_padding": 1,
+                "MaxPool2d_2_kernel_size": 2,
+                "num_layers": 1,
+                "dropout": 0.2,
+                "reshape": "False"
+            },
+            "DNN_3layers": {
+                "reshape": "False",
+                "dropout": 0.5
+            },
+            "DNN_5layers": {
+                "reshape": "False",
+                "dropout": 0.2
+            },
+            "DummyClassifier": {
+                "reshape": "False"
+            }
+        },
+        "model_type": "DNN_3layers",
+        "training_epoch_num": 10000,
+        "online_training_epoch_num": 10,
+        "learning_rate": 1e-05,
+        "online_train_learning_rate": 1e-05,
+        "weight_decay": 0,
+        "online_train_weight_decay": 0,
+        "patience": 50,
+        "min_delta": 0.001,
+        "data_update_mode": "append",
+        "trained_model_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/models/",
+        "online_trained_model_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/models/",
+        "reversals_ratio_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/reversals_ratio.png",
+        "confusion_matrix_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/confusion_matrix.png",
+        "training_curve_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/training_curve.png",
+        "online_training_curve_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/online_training_curve.png",
+        "pr_auc_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/pr_auc.png",
+        "roc_auc_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/roc_auc.png",
+        "stock_and_predictions_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/plots/stock_and_predictions.png",
+        "summary_save_path": "DNN_Projects_features_groups/MA-20-1e-05-64-32-0.5/Treasury_Yield-DNN_3layers-1e-05-0.5/reports/summary.json",
+        "look_back_steps": 64
+    }
+}
